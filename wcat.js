@@ -1,5 +1,5 @@
 let fs = require("fs");
-
+let path = require("path");
 let inputArr = process.argv.slice(2);
 
 // let fileArr = inputArr;
@@ -44,16 +44,27 @@ if(isPresents){
             contentArr[i] = null;
         }
     }
-    let tempArr = [];
+    let tempsArr = [];
     for(let i = 0; i < contentArr.length; i++){
         if(contentArr[i] != null){
-            tempArr.push(contentArr[i]);
+            tempsArr.push(contentArr[i]);
         }
     }
-    contentArr = tempArr;
+    contentArr = tempsArr;
 }
 
-console.log(contentArr.join("\n"));
+// console.log(contentArr.join("\n"));
 //console.log(opArr);
 
-// let isPresentn = opArr.includes("-n")
+let isPresentn = opArr.includes("-n")
+if(isPresentn) {
+    if((opArr.indexOf("-n") < opArr.indexOf("-b")) || opArr.indexOf("-b") == -1){
+
+        let tempnArr = contentArr;
+        for(let i = 0; i < tempnArr.length; i++){
+            tempnArr[i] = (i + 1) + "). " + tempnArr[i];
+        }
+        contentArr = tempnArr;
+    }
+}
+console.log(contentArr.join("\n"));
