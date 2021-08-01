@@ -1,0 +1,8 @@
+my name is f1
+
+
+
+i am just a text file 
+
+
+i am predecessor of f2
